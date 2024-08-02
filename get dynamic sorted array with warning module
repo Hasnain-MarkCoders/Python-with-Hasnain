@@ -1,0 +1,29 @@
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+def generateArrayAndSortItSpecificOrder():
+  isCorrectOrder=True
+  length = int(input("Please enter the length of the array: "))
+  order = input("Please enter the order of the sorterd array (a/d): ")
+  if order is not "a"and order is not "d":
+    print("Invalid order:")
+    isCorrectOrder= False
+  while isCorrectOrder is not True:
+    order = input("Please enter the order of the sorted array (a/d): ")
+    if order is "a" or order is "d":
+      isCorrectOrder = True
+      break
+  data = []
+  initialValue = 0
+  while initialValue<=length:
+    data.append(initialValue)
+    initialValue +=1
+  newData = np.array(data)
+  sortedData = np.sort(newData)
+  if order =="a":
+    return sortedData
+  elif order =="d":
+    return np.flip(sortedData)
+
+generateArrayAndSortItSpecificOrder()
+
